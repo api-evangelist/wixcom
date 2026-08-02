@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://dev.wix.com/docs/wix-cli/guides/about-the-wix-cli +
+  https://dev.wix.com/docs/develop-websites-sdk/test-your-site/work-with-test-sites
+description: >-
+  Wix's published testing surface. Wix has no Stripe-style test mode with
+  magic test values or test-vs-live key prefixes; instead, testing happens
+  against real (non-production) Wix sites. App developers use development
+  sites — premium Wix sites reserved for app testing, up to 5 maintained
+  simultaneously, switchable via the CLI dev command. Site/SDK developers
+  use test sites and a local development environment with hot reloading
+  (CLI `dev`), plus shareable preview versions before release. Nothing in
+  this file is invented; only the mechanisms Wix documents are recorded.
+modes:
+  test_vs_live: >-
+    No separate sandbox environment or test credentials; testing is done on
+    development/test sites distinct from the production site.
+mechanisms:
+  - name: development sites
+    audience: app developers
+    docs: https://dev.wix.com/docs/wix-cli/guides/about-the-wix-cli
+    detail: >-
+      Premium Wix sites used for app testing; maintain up to 5 simultaneously
+      and switch the site bound to an app at any time with the CLI dev
+      command.
+  - name: test sites
+    audience: site/SDK developers
+    docs: https://dev.wix.com/docs/develop-websites-sdk/test-your-site/work-with-test-sites
+  - name: local development environment
+    audience: CLI app and headless developers
+    docs: https://dev.wix.com/docs/wix-cli/command-reference/project-commands/dev
+    detail: hot-reloading local environment opened by the `dev` command
+  - name: preview versions
+    audience: CLI app and headless developers
+    docs: https://dev.wix.com/docs/wix-cli/command-reference/project-commands/preview
+    detail: shareable preview builds for collaboration before release
+test_values: []

@@ -1,0 +1,59 @@
+generated: '2026-07-21'
+method: searched
+docs: https://dev.wix.com/docs/api-reference/articles/authentication
+source: >-
+  https://dev.wix.com/docs/api-reference/articles/authentication/api-keys/make-api-calls-with-an-api-key
+  + https://dev.wix.com/docs/build-apps/develop-your-app/access/authentication/about-oauth
+  + https://dev.wix.com/docs/api-reference/app-management/oauth-2/introduction
+description: >-
+  Wix authentication profile captured from the developer docs (Wix publishes
+  no OpenAPI, so this is docs-searched rather than spec-derived). Every Wix
+  API call is authenticated as one of four identities (Wix user, app, site
+  member, site visitor). Admin/server calls use an API key from the API Keys
+  Manager in the Authorization header plus a wix-account-id (account-level)
+  or wix-site-id (site-level) header. Wix apps use OAuth 2 client credentials
+  (Create Access Token with app ID, app secret, and app instance ID) yielding
+  Bearer access tokens; the redirect-based "custom authentication" flow is
+  legacy and closed to new apps. Headless/site-member auth uses OAuthStrategy
+  with a client ID for member and visitor tokens. Elevated permissions let
+  backend code raise an identity's permissions for specific calls.
+summary:
+  types: [apiKey, oauth2]
+  api_key_in: [header]
+  oauth2_flows: [clientCredentials]
+  identities: [WIX_USER, APP, MEMBER, ANONYMOUS_VISITOR]
+schemes:
+  - name: ApiKey
+    type: apiKey
+    in: header
+    parameter: Authorization
+    additional_headers:
+      - name: wix-account-id
+        usage: required for account-level API calls
+      - name: wix-site-id
+        usage: required for site-level API calls (one of the two, never both)
+    key_manager: https://manage.wix.com/account/api-keys
+    docs: https://dev.wix.com/docs/api-reference/articles/authentication/api-keys/about-api-keys
+  - name: OAuth2ClientCredentials
+    type: oauth2
+    flow: clientCredentials
+    token_operation: >-
+      Create Access Token
+      (https://dev.wix.com/docs/api-reference/app-management/oauth-2/create-access-token)
+      called with app ID, app secret, and app instance ID.
+    token_type: Bearer
+    docs: https://dev.wix.com/docs/build-apps/develop-your-app/access/authentication/about-oauth
+    notes: >-
+      Legacy "custom authentication" (authorization-code style with a
+      10-minute authorization code and non-expiring refresh tokens) is
+      deprecated and unavailable to new apps.
+  - name: OAuthStrategy
+    type: oauth2
+    audience: headless clients, site members and visitors
+    docs: https://dev.wix.com/docs/go-headless/self-managed-headless/authentication
+    notes: >-
+      @wix/sdk OAuthStrategy with an OAuth-app client ID issues visitor and
+      member tokens for headless projects.
+elevated_permissions:
+  docs: https://dev.wix.com/docs/api-reference/articles/authentication/about-elevated-permissions
+sdk_strategies: [ApiKeyStrategy, OAuthStrategy]

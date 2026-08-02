@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis/platform/about-api-versions-and-deprecation
+description: >-
+  Wix API lifecycle posture from the "About API Versions and Deprecation"
+  reference. Versions are released at the module or submodule level (e.g.
+  Bookings API v3 while Bookings Attendance is v2) and appear in the URI path
+  (e.g. /stores/v3/products). Wix commits to a no-sunset deprecation policy:
+  deprecated APIs remain functional and are not removed, with advance notice
+  and recommended alternatives published in the API reference, deprecated
+  items hidden behind a "Show Deprecated Items" toggle, and every deprecation
+  recorded in the changelog at https://dev.wix.com/changelog.
+versioning:
+  scheme: uri-path, per module/submodule (v1, v2, v3...)
+  docs: https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis/platform/about-api-versions-and-deprecation
+  non_breaking_changes: >-
+    Within a major version Wix may add response fields, request fields in
+    service plugins, and enum values; clients are expected to tolerate
+    unknown fields and enum values.
+deprecation:
+  policy_url: https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis/platform/about-api-versions-and-deprecation
+  sunset_header: false
+  policy: >-
+    Advance notice in the API reference before deprecation takes effect;
+    deprecated items remain functional (Wix doesn't remove or "sunset"
+    deprecated APIs); no new development recommended; deprecations documented
+    in the changelog.
+status_page: https://status.wix.com
+changelog: https://dev.wix.com/changelog
+developer_preview:
+  docs: https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis/platform/about-developer-preview
+  note: APIs in Developer Preview (e.g. the Wix GraphQL API) are subject to change based on developer feedback.

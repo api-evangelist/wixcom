@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/wix/skills (main, fetched 2026-07-21)
+description: >-
+  Provider-published Agent Skills. Wix ships an official agent-skills repo
+  (wix/skills, also distributed on npm as @wix/agent-skills, v1.15.0 at
+  capture) with installers for Claude Code (/plugin marketplace add
+  wix/skills), Codex, VS Code, Cursor, Gemini CLI, and the skills CLI (npx
+  skills add wix/skills). New Wix CLI projects bundle these skills by
+  default. Each SKILL.md below is saved verbatim from the repo; frontmatter
+  (name/description/compatibility) is Wix's own. Docs:
+  https://dev.wix.com/docs/api-reference/articles/ai-tools/about-wix-skills.
+skills:
+  - file: wixcom-wix-app.md
+    name: wix-app
+    purpose: Build and review Wix CLI app extensions (dashboard pages, widgets, plugins, backend events, data collections, App Market readiness).
+  - file: wixcom-wix-auth.md
+    name: wix-auth
+    purpose: Authenticate with Wix to obtain an access token for calling Wix APIs.
+  - file: wixcom-wix-design-system.md
+    name: wix-design-system
+    purpose: Wix Design System component reference for @wix/design-system UI work.
+  - file: wixcom-wix-docs.md
+    name: wix-docs
+    purpose: Look up Wix API/SDK documentation (semantic search endpoint + llms.txt tree) before writing Wix code.
+  - file: wixcom-wix-headless.md
+    name: wix-headless
+    purpose: Connect Wix business services to a Wix Headless frontend; scaffold, build, and release managed projects.
+  - file: wixcom-wix-manage.md
+    name: wix-manage
+    purpose: REST API recipes for configuring and managing Wix business solutions (stores, bookings, CMS, contacts, ecommerce, and more).
+  - file: wixcom-wix-vibe-headless.md
+    name: wix-vibe-headless
+    purpose: Client-only REST scaffolds connecting an existing frontend to a live Wix site via a public WIX_CLIENT_ID.
+distribution:
+  github: https://github.com/wix/skills
+  npm: https://www.npmjs.com/package/@wix/agent-skills
+  claude_code: "/plugin marketplace add wix/skills && /plugin install wix@wix"
+  skills_cli: npx skills add wix/skills

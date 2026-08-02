@@ -1,0 +1,68 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis/troubleshooting/about-errors
+format: wix-error-envelope
+description: >-
+  Wix API error model, captured from the "About Errors" reference. Wix does
+  not use RFC 9457 application/problem+json; errors are a JSON envelope with a
+  top-level `message` and a `details` object carrying either an
+  `applicationError` (code, description, data) or a `validationError` with a
+  `fieldViolations[]` array (field, description, violatedRule, ruleName,
+  data). System errors return an empty message and details by design.
+  Application error codes include UNAUTHENTICATED, PERMISSION_DENIED,
+  NOT_FOUND, ALREADY_EXISTS, ABORTED, and RESOURCE_EXHAUSTED; validation rules
+  include OUT_OF_RANGE and INVALID_ARGUMENT. Per-product error code lists are
+  published in each API's reference (e.g. Wix Data error codes at
+  https://dev.wix.com/docs/api-reference/business-solutions/cms/wix-data-error-codes).
+envelope:
+  message: Textual description that provides a brief explanation of the error.
+  details.applicationError.code: Identifier that categorizes and signifies the specific error.
+  details.applicationError.description: Detailed explanation of why the error occurred.
+  details.applicationError.data: Additional contextual information related to the error.
+  details.validationError.fieldViolations: Array of validation issues found in individual fields (field, description, violatedRule, ruleName, data).
+problems:
+  - status: 400
+    title: Bad Request
+    detail: One or more request parameters is wrong or missing, or you didn't pass validation.
+  - status: 401
+    title: Unauthorized
+    detail: >-
+      The system wasn't able to authenticate you (missing or incorrect
+      Authorization header, or an expired token). Occasionally returned when
+      you don't have permissions to call this API.
+  - status: 403
+    title: Permission denied
+    detail: The system authenticated you, but you don't have permissions to call this API.
+  - status: 404
+    title: Not found
+    detail: Resource not found or doesn't exist.
+  - status: 409
+    title: Conflict
+    detail: >-
+      The resource you are attempting to create already exists or has a
+      different revision than the one you're attempting to update, or another
+      conflict with the server state.
+  - status: 428
+    title: Precondition required
+    detail: >-
+      Preconditions must be met for the request to be successful (e.g. a
+      required field wasn't passed, or the passed gift card is out of funds).
+  - status: 429
+    title: Resource exhausted
+    detail: >-
+      Resource usage was exhausted. For example, a previously used
+      one-time-token or too many requests.
+  - status: 500
+    title: Internal server error
+    detail: An error occurred on Wix's server. Try again later.
+  - status: 501
+    title: Not implemented
+    detail: The endpoint hasn't been implemented yet.
+  - status: 503
+    title: Service unavailable
+    detail: The service that you're trying to access is temporarily unavailable. Try again later.
+  - status: 504
+    title: Gateway timeout
+    detail: >-
+      The underlying service didn't respond in a timely manner. For queries,
+      try a smaller page size or a simpler filter.

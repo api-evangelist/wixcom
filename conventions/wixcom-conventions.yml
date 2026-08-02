@@ -1,0 +1,80 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis — the
+  cross-cutting request/response semantics of the Wix REST platform (data
+  retrieval articles, error reference, versioning reference, webhook
+  structure reference), captured 2026-07-21.
+description: >-
+  How Wix's REST APIs behave across every operation: authentication style,
+  the Wix API Query Language for filtering/sorting, cursor and offset
+  paging, field projection, per-module versioning, the error envelope, and
+  event/webhook semantics. Wix publishes no OpenAPI; these conventions are
+  captured from the platform-wide reference articles.
+
+base_url: https://www.wixapis.com
+api_style: REST over HTTPS, JSON requests and responses; query/search via POST bodies
+
+authentication:
+  scheme: >-
+    API key in the Authorization header plus wix-account-id or wix-site-id
+    header (admin), or OAuth 2 client-credentials Bearer tokens (apps), or
+    member/visitor OAuth tokens (headless).
+  docs: https://dev.wix.com/docs/api-reference/articles/authentication
+  detail: authentication/wixcom-authentication.yml
+
+idempotency:
+  supported: false
+  notes: >-
+    Wix does not document an Idempotency-Key header or equivalent replay
+    mechanism. Update safety is handled with optimistic concurrency: entities
+    carry a revision, and updates with a stale revision fail with 409
+    Conflict.
+
+query_language:
+  name: Wix API Query Language
+  docs: https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis/data-retrieval/about-the-wix-api-query-language
+  shape: >-
+    JSON query object with filter (MongoDB-style operators, e.g.
+    {"visible": {"$eq": true}}), sort ([{"fieldName": "createdDate",
+    "order": "DESC"}]), and paging.
+
+pagination:
+  styles: [cursor, offset]
+  cursor:
+    request: query.cursorPaging.limit + query.cursorPaging.cursor
+    docs: https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis/data-retrieval/about-sorting-and-paging
+  notes: Search/Query/List method families define which paging style each endpoint supports.
+
+field_projection:
+  supported: true
+  docs: https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis/data-retrieval/about-field-projection
+  notes: Responses can be narrowed to requested fields (fields/fieldsets projection).
+
+versioning:
+  scheme: uri-path per module/submodule (e.g. /stores/v3/products)
+  detail: lifecycle/wixcom-lifecycle.yml
+
+error_envelope:
+  shape: >-
+    {"message": "...", "details": {"applicationError": {code, description,
+    data}}} or {"details": {"validationError": {"fieldViolations": [...]}}}
+  formats: [wix-error-envelope]
+  detail: errors/wixcom-problem-types.yml
+
+rate_limit_signaling:
+  status_code: 429
+  application_error_code: RESOURCE_EXHAUSTED
+  notes: >-
+    429 "Resource exhausted" is returned for too many requests; Wix does not
+    document platform-wide numeric quotas or rate-limit response headers in
+    the cross-cutting reference.
+
+events:
+  delivery: REST webhooks (JWT-encoded payloads) or SDK event handlers
+  event_type_format: wix.{domain}.v{n}.{event} (e.g. wix.contacts.v4.contact_merged)
+  detail: asyncapi/wixcom-webhooks.yml
+
+machine_readable_docs:
+  llms_txt: https://dev.wix.com/docs/llms.txt
+  markdown_mirror: append .md to any dev.wix.com/docs URL

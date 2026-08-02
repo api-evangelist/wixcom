@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+docs: https://dev.wix.com/docs/build-apps/develop-your-app/access/authorization/about-permissions
+source: https://dev.wix.com/docs/build-apps/develop-your-app/access/authorization/about-permissions
+description: >-
+  Wix's OAuth authorization surface uses named permission scopes rather than
+  a single published scope registry. Apps declare the permission scopes they
+  need in the app dashboard (https://dev.wix.com/apps/my-apps); site owners
+  grant them at install time, and access tokens are minted with those
+  permissions via the OAuth 2 client-credentials flow. The authoritative
+  scope list is distributed across the API reference: every REST endpoint,
+  SDK method, and webhook documents the permission scopes that grant access
+  to it. Scopes are hierarchical: broad "manage" scopes contain narrower
+  ones (App Market guidelines require requesting the minimum set — e.g. an
+  app requesting "Manage Stores - All Permissions" must not also request
+  "Manage Products", which it already contains). Wix publishes no OpenAPI,
+  so no machine-derived scope enumeration is possible; this artifact
+  captures the model and the published example scope names verbatim.
+schemes:
+  - name: OAuth2ClientCredentials
+    flows:
+      - flow: clientCredentials
+        tokenOperation: https://dev.wix.com/docs/api-reference/app-management/oauth-2/create-access-token
+scope_model:
+  granted_via: app dashboard permission configuration + site-owner consent at install
+  documented_per_operation: true
+  hierarchy: broad "manage" scopes include narrower read/manage scopes
+  configuration_docs: https://dev.wix.com/docs/build-apps/develop-your-app/access/authorization/configure-permissions-for-your-app
+scopes:
+  - scope: Manage Stores - All Permissions
+    description: >-
+      Full management of Wix Stores; contains narrower Stores permissions
+      such as Manage Products (example quoted in the App Market guidelines).
+  - scope: Manage Products
+    description: Manage Wix Stores products (contained within Manage Stores - All Permissions).

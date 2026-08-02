@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.wix.com/docs/wix-cli/guides/about-the-wix-cli
+docs: https://dev.wix.com/docs/wix-cli
+description: >-
+  The Wix CLI (@wix/cli on npm) is the first-party command-line tool for
+  creating, developing, and deploying Wix apps and Wix-managed headless
+  projects, built on a standardized Astro project structure with serverless
+  hosting, local dev with hot reloading, shareable previews, environment
+  variables, and CI/CD integration. New CLI projects include Wix agent
+  skills by default so AI tools can drive CLI tasks. It replaces the Legacy
+  Wix CLI for Apps; site development uses the separate Git Integration &
+  Wix CLI for Sites. Command surface captured from the published command
+  reference.
+package: "@wix/cli"
+install:
+  - npm install --save-dev @wix/cli
+  - npm i --save-dev @wix/cli@latest  # upgrade
+commands:
+  project_creation:
+    - create app
+    - create headless
+    - create headless link
+    - create init
+  project:
+    - dev          # local development environment with hot reloading
+    - generate     # generate extensions
+    - build
+    - preview      # shareable preview versions
+    - release
+    - env pull
+    - env set
+    - env remove
+  global:
+    - login
+    - logout
+    - whoami
+    - telemetry
+    - skills add
+    - skills update
+command_reference: https://dev.wix.com/docs/wix-cli/command-reference
+flows:
+  - name: develop and test locally
+    detail: run `dev` against a development site (apps) or the local project site/dashboard (headless), with hot reloading
+  - name: build, preview, release
+    detail: build the project, share a preview, then release to production on Wix's serverless hosting
+  - name: agent skills
+    detail: skills add / skills update manage the bundled Wix agent skills in a project
+development_sites:
+  notes: Up to 5 premium development sites can be maintained simultaneously for app testing.
+related:
+  packages: packages/wixcom-packages.yml
+  legacy: https://dev.wix.com/docs/wix-cli/legacy-clis/legacy-wix-cli-for-apps/about-the-legacy-wix-cli-for-apps

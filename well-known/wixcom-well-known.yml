@@ -1,0 +1,55 @@
+generated: '2026-07-21'
+method: searched
+description: >-
+  Results of probing the /.well-known/ discovery surface for the Wix website,
+  developer portal, and API hosts. Status is the HTTP code observed at fetch
+  time (2026-07-21). Wix publishes no /.well-known/ discovery documents on any
+  of these hosts; its machine-readable discovery surface is instead the
+  llms.txt index at https://dev.wix.com/docs/llms.txt (saved verbatim at
+  llms/wixcom-llms.txt) and the markdown mirror of every docs page (append .md
+  to any dev.wix.com/docs URL).
+hosts:
+  - host: https://www.wix.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 200
+        note: corporate site map in llms.txt format (not saved; docs llms.txt is canonical)
+  - host: https://dev.wix.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /docs/llms.txt
+        status: 200
+        file: ../llms/wixcom-llms.txt
+  - host: https://www.wixapis.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 404

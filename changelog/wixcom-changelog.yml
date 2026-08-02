@@ -1,0 +1,141 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.wix.com/changelog
+description: Wix developer changelog, captured from the dated feed at https://dev.wix.com/changelog (the
+  page preloads its most recent 100 entries; the 15 most recent at capture time are structured below).
+  Entries are tagged with a status (New/Updated/Deprecated), the developer surfaces affected (REST, SDK,
+  Velo, Build Apps, Headless, Wix CLI), and the product area. Deprecations are announced here per the
+  versioning policy in lifecycle/wixcom-lifecycle.yml; API versions are per-module (v1/v2/v3) rather than
+  a single platform version.
+scheme: dated feed, per-module API versions
+url: https://dev.wix.com/changelog
+entries:
+- date: '2026-07-21'
+  title: 'New release: Marketing Email Transmissions API'
+  status: New
+  surfaces:
+  - REST
+  - SDK
+  products:
+  - Marketing
+  - Wix Emails
+  link: https://dev.wix.com/docs/api-reference/business-management/marketing/emails/email-transmission-v1/introduction
+- date: '2026-07-21'
+  title: 'New release: Stores Promotions V3 API'
+  status: New
+  surfaces:
+  - REST
+  - SDK
+  products:
+  - Stores
+  link: https://dev.wix.com/docs/api-reference/business-solutions/stores/catalog-v3/promotions-v3/introduction
+- date: '2026-07-20'
+  title: 'New article: Set up your payout account for paid apps'
+  status: New
+  surfaces:
+  - Build Apps
+  products: []
+  link: https://dev.wix.com/docs/build-apps/launch-your-app/pricing-and-billing/set-up-your-payout-account
+- date: '2026-07-20'
+  title: 'New release: Payments Payouts API'
+  status: New
+  surfaces:
+  - REST
+  - SDK
+  products:
+  - Payments
+  link: https://dev.wix.com/docs/api-reference/business-management/payments/wix-payments-provider/payouts/introduction
+- date: '2026-07-20'
+  title: 'New fields: Wix Restaurants Reservation API'
+  status: Updated
+  surfaces:
+  - REST
+  - SDK
+  products:
+  - Restaurants
+  link: https://dev.wix.com/docs/api-reference/business-solutions/restaurants/reservations/reservations/reservation-object
+- date: '2026-07-16'
+  title: 'New feature: Add External URL Extensions with the Wix CLI'
+  status: Updated
+  surfaces:
+  - Build Apps
+  - Wix CLI
+  products: []
+  link: https://dev.wix.com/docs/build-apps/develop-your-app/develop-an-app-with-the-cli/supported-extensions/dashboard/external-links/add-external-url-extensions-with-the-wix-cli
+- date: '2026-07-16'
+  title: 'New feature: Build a frontend for a headless project from a vibe coding platform'
+  status: New
+  surfaces:
+  - Headless
+  products: []
+  link: https://dev.wix.com/docs/go-headless/get-started/quick-starts/self-managed-headless/quick-start-from-a-vibe-coding-platform
+- date: '2026-07-16'
+  title: 'New release: Certifications APIs'
+  status: New
+  surfaces:
+  - SDK
+  - REST
+  products: []
+  link: https://dev.wix.com/docs/api-reference/account-level/studio-workspace/certifications/about-the-certifications-apis
+- date: '2026-07-16'
+  title: 'New release: Marketing Google Ads APIs'
+  status: New
+  surfaces:
+  - REST
+  - SDK
+  products:
+  - Marketing
+  link: https://dev.wix.com/docs/api-reference/business-management/marketing/ads/google-ads/introduction
+- date: '2026-07-15'
+  title: 'New feature: Sign in with an external identity provider'
+  status: New
+  surfaces:
+  - Headless
+  - REST
+  - SDK
+  products:
+  - Members
+  link: https://dev.wix.com/docs/go-headless/self-managed-headless/authentication/members/external-identity-provider/sign-in-with-an-identity-provider-using-the-js-sdk
+- date: '2026-07-15'
+  title: 'New release: Bookings Attributes APIs'
+  status: New
+  surfaces:
+  - SDK
+  - REST
+  products:
+  - Bookings
+  link: https://dev.wix.com/docs/api-reference/business-solutions/bookings/resources/attributes/introduction
+- date: '2026-07-14'
+  title: 'New release: Payments Balance Records API'
+  status: New
+  surfaces:
+  - REST
+  - SDK
+  products:
+  - Payments
+  link: https://dev.wix.com/docs/api-reference/business-management/payments/wix-payments-provider/balances/introduction
+- date: '2026-07-13'
+  title: 'New release: Contacts API'
+  status: New
+  surfaces:
+  - REST
+  - SDK
+  products:
+  - Contacts
+  link: https://dev.wix.com/docs/api-reference/crm/members-contacts/contacts/contacts-v5/introduction
+- date: '2026-07-13'
+  title: 'New release: CMS Compliance API'
+  status: New
+  surfaces:
+  - REST
+  - SDK
+  products:
+  - CMS
+  link: https://dev.wix.com/docs/api-reference/account-level/enterprise/cms-compliance/compliance-review-request-v1/introduction
+- date: '2026-07-13'
+  title: 'New feature: Headless member login support for browsers that block third-party cookies'
+  status: Updated
+  surfaces:
+  - Headless
+  products: []
+  link: https://dev.wix.com/docs/go-headless/self-managed-headless/authentication/members/custom-login-page/custom-login/custom-login-using-the-js-sdk#use-a-full-page-redirect-desktop-and-mobile-browsers

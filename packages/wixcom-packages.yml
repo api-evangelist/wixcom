@@ -1,0 +1,75 @@
+generated: '2026-07-21'
+method: searched
+source: https://registry.npmjs.org (verified 2026-07-21) + https://dev.wix.com/docs/sdk
+description: >-
+  First-party Wix client libraries and developer tools. Wix ships its SDK as
+  JavaScript/TypeScript packages on npm under the @wix scope: a core client
+  (@wix/sdk) plus one domain package per business solution following the
+  naming convention @wix/{domain} (e.g. @wix/stores, @wix/bookings), the Wix
+  CLI, the MCP remote proxy, and the agent-skills distribution. Versions below
+  are the npm dist-tags.latest observed at fetch time. Wix publishes no
+  official Python, Ruby, Java, Go, PHP, or .NET server SDKs.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@wix/sdk"
+    version: 1.21.13
+    url: https://www.npmjs.com/package/@wix/sdk
+    docs: https://dev.wix.com/docs/sdk
+    install: npm install @wix/sdk
+    official: true
+    notes: Core Wix JavaScript SDK client (createClient, auth strategies ApiKeyStrategy/OAuthStrategy).
+  - language: javascript
+    registry: npm
+    name: "@wix/cli"
+    version: 1.1.227
+    url: https://www.npmjs.com/package/@wix/cli
+    docs: https://dev.wix.com/docs/wix-cli/guides/about-the-wix-cli
+    install: npm install --save-dev @wix/cli
+    official: true
+    notes: Wix CLI for building apps and Wix-managed headless projects (see cli/wixcom-cli.yml).
+  - language: javascript
+    registry: npm
+    name: "@wix/mcp"
+    version: 1.0.65
+    url: https://www.npmjs.com/package/@wix/mcp
+    install: npx -y @wix/mcp
+    official: true
+    notes: Model Context Protocol server for Wix AI tools.
+  - language: javascript
+    registry: npm
+    name: "@wix/mcp-remote"
+    version: 0.0.6
+    url: https://www.npmjs.com/package/@wix/mcp-remote
+    docs: https://dev.wix.com/docs/sdk/articles/use-the-wix-mcp/about-the-wix-mcp
+    install: npx -y @wix/mcp-remote@latest https://mcp.wix.com/mcp
+    official: true
+    notes: Remote MCP proxy for local-only clients, with OAuth.
+  - language: javascript
+    registry: npm
+    name: "@wix/agent-skills"
+    version: 1.15.0
+    url: https://www.npmjs.com/package/@wix/agent-skills
+    source: https://github.com/wix/skills
+    install: npx skills add wix/skills
+    official: true
+    notes: Versioned npm distribution of the wix/skills agent-skills content (see skills/).
+  - language: javascript
+    registry: npm
+    name: "@wix/stores"
+    url: https://www.npmjs.com/package/@wix/stores
+    docs: https://dev.wix.com/docs/sdk
+    install: npm install @wix/sdk @wix/stores
+    official: true
+    notes: >-
+      Example of the domain-package family. Every Wix business solution ships
+      as its own @wix/{domain} npm package consumed through @wix/sdk
+      (e.g. @wix/stores, @wix/bookings, @wix/events, @wix/data,
+      @wix/authentication, @wix/analytics, @wix/site).
+  - language: javascript
+    registry: npm
+    name: "@wix/design-system"
+    version: 1.302.0
+    url: https://www.npmjs.com/package/@wix/design-system
+    official: true
+    notes: Wix Design System React components for building app UI (see components/wixcom-components.yml).

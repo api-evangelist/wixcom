@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+type: Webhooks
+source: https://dev.wix.com/docs/api-reference/articles/work-with-wix-apis/platform/about-the-structure-of-webhooks
+description: >-
+  Wix's event surface, captured from the "About the Structure of Events"
+  platform reference. Wix publishes no AsyncAPI document; every business
+  solution exposes domain events delivered as REST webhooks (JWT-encoded
+  payloads) or as SDK event handlers. Webhook subscriptions and their
+  required permission scopes are configured per app in the app dashboard;
+  each API's reference documents its webhook catalog and exact payload
+  fields. Enterprise and Channels partners can additionally subscribe to
+  account-level webhooks (site creation, folder changes, team member
+  updates).
+delivery:
+  rest:
+    mechanism: webhooks, payload encoded as a JWT containing a data object
+    envelope:
+      eventType: "event type, e.g. wix.contacts.v4.contact_merged"
+      instanceId: app instance ID identifying the site where the event occurred
+      data: event-specific data as a JSON string (entity data, event context, action-specific data)
+      identity: JSON string with identityType (ANONYMOUS_VISITOR | MEMBER | WIX_USER | APP) plus the matching id field
+    modified_fields: data.data.updatedEvent.modifiedFields carries pre-update values on some updated events
+  sdk:
+    mechanism: event handlers receiving { metadata, entity, modifiedFields }
+subscription:
+  configured_in: app dashboard (permission scopes attached during webhook subscription)
+  docs: https://dev.wix.com/docs/build-apps/develop-your-app/api-integrations/events-and-webhooks/about-webhooks
+account_level:
+  audience: Enterprise and Channels partners
+  docs: https://dev.wix.com/docs/develop-websites-sdk/code-your-site/account-level-development/about-account-level-webhooks
+  events: [site creation, folder changes, team member updates]
+event_naming: wix.{domain}.v{version}.{event}
+example_event_types:
+  - wix.contacts.v4.contact_merged
+legacy:
+  notes: >-
+    Some legacy webhooks (e.g. Wix Stores catalog-v1 Product Changed) return
+    only changed fields in a flat list instead of the standard structure.
+asyncapi_published: false

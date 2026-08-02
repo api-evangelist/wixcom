@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://registry.npmjs.org + https://dev.wix.com/docs (verified 2026-07-21)
+description: >-
+  Wix's client-side / embeddable UI component surface, distinct from the
+  server SDKs in packages/. Wix ships the Wix Design System (WDS) as React
+  component libraries for building app UI with a native Wix look and feel,
+  headless UI component kits for custom frontends, and app-extension UI
+  surfaces (dashboard pages, site widgets, embedded scripts) generated via
+  the Wix CLI. Loader/registry entries verified on npm.
+families:
+  - family: Wix Design System
+    purpose: React components, icons, and illustrations for Wix app UI
+    docs: https://www.wix-pages.com/wix-design-system/
+    libraries:
+      - name: "@wix/design-system"
+        registry: npm
+        url: https://www.npmjs.com/package/@wix/design-system
+      - name: "@wix/wix-ui-icons-common"
+        registry: npm
+        url: https://www.npmjs.com/package/@wix/wix-ui-icons-common
+      - name: "@wix/design-system-illustrations"
+        registry: npm
+        url: https://www.npmjs.com/package/@wix/design-system-illustrations
+      - name: wix-style-react
+        registry: npm
+        url: https://www.npmjs.com/package/wix-style-react
+        notes: earlier-generation WDS React library
+  - family: Headless components
+    purpose: prebuilt UI building blocks for custom (headless) frontends
+    docs: https://dev.wix.com/docs/go-headless
+    libraries:
+      - name: "@wix/headless-ecom"
+        registry: npm
+        url: https://www.npmjs.com/package/@wix/headless-ecom
+        notes: e-commerce headless components for cart and checkout surfaces
+  - family: App extension surfaces
+    purpose: embeddable app UI hosted inside Wix (dashboard pages, site widgets, embedded scripts)
+    docs: https://dev.wix.com/docs/build-apps/develop-your-app/extensions
+    libraries:
+      - name: "@wix/editor-react-components"
+        registry: npm
+        url: https://www.npmjs.com/package/@wix/editor-react-components
