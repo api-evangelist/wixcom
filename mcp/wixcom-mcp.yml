@@ -2,51 +2,57 @@ generated: '2026-07-21'
 method: searched
 status: published
 source: https://dev.wix.com/docs/sdk/articles/use-the-wix-mcp/about-the-wix-mcp
-description: >-
-  Wix operates an official remote MCP server at https://mcp.wix.com/mcp
-  (streamable HTTP; SSE also supported). Authentication is either the built-in
-  OAuth flow or a Wix API key passed in the Authorization header together with
-  a wix-account-id header. Local-only MCP clients connect through the
-  @wix/mcp-remote npx proxy. The tool list below is captured verbatim from the
-  Wix MCP documentation; all tools are enabled by default. A one-click Cursor
-  install and listing in the Cursor MCP library are also published.
+description: Wix operates an official remote MCP server at https://mcp.wix.com/mcp (streamable HTTP; SSE
+  also supported). Authentication is either the built-in OAuth flow or a Wix API key passed in the Authorization
+  header together with a wix-account-id header. Local-only MCP clients connect through the @wix/mcp-remote
+  npx proxy. The tool list below is captured verbatim from the Wix MCP documentation; all tools are enabled
+  by default. A one-click Cursor install and listing in the Cursor MCP library are also published.
 server:
   name: wix-mcp
   transport: http
   url: https://mcp.wix.com/mcp
-  transports_supported: [http, sse]
+  transports_supported:
+  - http
+  - sse
   auth: oauth2 or API key (Authorization + wix-account-id headers)
 local:
-  name: "@wix/mcp-remote"
+  name: '@wix/mcp-remote'
   transport: stdio
   install: npx -y @wix/mcp-remote@latest https://mcp.wix.com/mcp
   requires: Node.js >= 19.9.0
 packages:
-  - name: "@wix/mcp"
-    registry: npm
-    url: https://www.npmjs.com/package/@wix/mcp
+- name: '@wix/mcp'
+  registry: npm
+  url: https://www.npmjs.com/package/@wix/mcp
 tools:
-  - name: SearchWixWDSDocumentation
-    description: Search the Wix Design System documentation.
-  - name: SearchWixRESTDocumentation
-    description: Search the Wix REST documentation.
-  - name: SearchWixSDKDocumentation
-    description: Search the Wix SDK documentation.
-  - name: SearchBuildAppsDocumentation
-    description: Search the Wix Build Apps documentation.
-  - name: SearchWixHeadlessDocumentation
-    description: Search the Wix Headless documentation.
-  - name: WixBusinessFlowsDocumentation
-    description: Include complete step-by-step instructions for multi-step sample flows.
-  - name: ReadFullDocsArticle
-    description: Fetch the full content of an article by article URL.
-  - name: ReadFullDocsMethodSchema
-    description: Get the full request and response schema of an API method.
-  - name: ListWixSites
-    description: Query the sites for a Wix account.
-  - name: CallWixSiteAPI
-    description: Perform an action or query for a given account and selected site.
-  - name: ManageWixSite
-    description: Perform a site-level action, such as creating a site.
-  - name: SupportAndFeedback
-    description: Prompt the user for feedback and send it to Wix.
+- name: SearchWixWDSDocumentation
+  description: Search the Wix Design System documentation.
+- name: SearchWixRESTDocumentation
+  description: Search the Wix REST documentation.
+- name: SearchWixSDKDocumentation
+  description: Search the Wix SDK documentation.
+- name: SearchBuildAppsDocumentation
+  description: Search the Wix Build Apps documentation.
+- name: SearchWixHeadlessDocumentation
+  description: Search the Wix Headless documentation.
+- name: WixBusinessFlowsDocumentation
+  description: Include complete step-by-step instructions for multi-step sample flows.
+- name: ReadFullDocsArticle
+  description: Fetch the full content of an article by article URL.
+- name: ReadFullDocsMethodSchema
+  description: Get the full request and response schema of an API method.
+- name: ListWixSites
+  description: Query the sites for a Wix account.
+- name: CallWixSiteAPI
+  description: Perform an action or query for a given account and selected site.
+- name: ManageWixSite
+  description: Perform a site-level action, such as creating a site.
+- name: SupportAndFeedback
+  description: Prompt the user for feedback and send it to Wix.
+deployment:
+  mode: remote
+  endpoint: https://mcp.wix.com/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
