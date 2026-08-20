@@ -33,6 +33,16 @@ image: https://www.wix.com/favicon.ico
 tags:
 - Company
 - Website Builder
+- E-Commerce
+- CMS
+- Bookings
+- Payments
+- Headless
+- Software-as-a-Service
+- No-Code
+tags_raw:
+- Company
+- Website Builder
 - eCommerce
 - CMS
 - Bookings
@@ -52,6 +62,11 @@ apis:
   humanURL: https://dev.wix.com/docs/rest
   baseURL: https://www.wixapis.com
   tags:
+  - REST
+  - E-Commerce
+  - CMS
+  - Bookings
+  tags_raw:
   - REST
   - eCommerce
   - CMS
