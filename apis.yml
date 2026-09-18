@@ -46,7 +46,7 @@ tags:
 - Website Builder
 - E-Commerce
 - CMS
-- Bookings
+- Booking
 - Payments
 - Headless
 - Software-as-a-Service
@@ -76,7 +76,7 @@ apis:
   - REST
   - E-Commerce
   - CMS
-  - Bookings
+  - Booking
   tags_raw:
   - REST
   - eCommerce
